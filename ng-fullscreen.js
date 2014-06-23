@@ -59,7 +59,7 @@
          return serviceInstance;
       }]);
 
-      module.directive('fullscreen', ['Fullscreen',  function(Fullscreen) {
+      module.directive('fullscreen', ['Fullscreen', '$document', function(Fullscreen, $document) {
          return {
             link : function ($scope, $element, $attrs) {
                // Watch for changes on scope if model is provided
@@ -74,7 +74,7 @@
                         $element.removeClass('isInFullScreen');
                      }
                   });
-                  document.on('fullscreenchange webkitfullscreenchange mozfullscreenchange', function(){
+                  $document.on('fullscreenchange webkitfullscreenchange mozfullscreenchange', function(){
                      if(!Fullscreen.isEnabled()){
                         $scope.$evalAsync(function(){
                            $scope[$attrs.fullscreen] = false
