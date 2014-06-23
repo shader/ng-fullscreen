@@ -1,6 +1,6 @@
 (function(window) {
    var createModule = function(angular) {
-      var module = angular.module('FBAngular', []);
+      var module = angular.module('ngFullscreen', []);
 
       module.factory('Fullscreen', ['$document', function ($document) {
          var document = $document[0];
@@ -74,7 +74,7 @@
                         $element.removeClass('isInFullScreen');
                      }
                   });
-                  $element.on('fullscreenchange webkitfullscreenchange mozfullscreenchange', function(){
+                  document.on('fullscreenchange webkitfullscreenchange mozfullscreenchange', function(){
                      if(!Fullscreen.isEnabled()){
                         $scope.$evalAsync(function(){
                            $scope[$attrs.fullscreen] = false
@@ -98,7 +98,7 @@
    };
 
    if (typeof define === "function" && define.amd) {
-      define("FBAngular", ['angular'], function (angular) { return createModule(angular); } );
+      define(['angular'], function (angular) { return createModule(angular); } );
    } else {
       createModule(window.angular);
    }
