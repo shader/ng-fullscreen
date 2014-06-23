@@ -3,22 +3,24 @@ AngularJS HTML5 Fullscreen
 
 An AngularJS service and a directive to quickly use the HTML5 fullscreen API and set the fullscreen to the document or to a specific element.
 
+This project was originally forked from Fabio Biondi's work released under the MIT license at https://github.com/fabiobiondi/angular-fullscreen
+
 ## Example
 Live demo: http://www.fabiobiondi.com/demo/github/angular-fullscreen/demo/
 
 ## Usage
-Add AngularJS and the angular-fullscreen.js to your main file (index.html)
+Add AngularJS and the ng-fullscreen.js to your main file (index.html)
 	
 ```html
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
-<script src="angular-fullscreen.js"></script>
+<script src="ng-fullscreen.js"></script>
 ```
 
 
-Set `FBAngular` as a dependency in your module:
+Set `ngFullscreen` as a dependency in your module:
 
 ```javascript
-var app = angular.module('YourApp', ['FBAngular'])
+var app = angular.module('YourApp', ['ngFullscreen'])
 ```
 
 ## Fullscreen Directive
@@ -31,7 +33,7 @@ The only requirement is to set a different ID to all elements that you will flag
 
 
 ## Fullscreen Service
-You can also use the `Fullscreen` service into your controller:
+You can also use the `Fullscreen` service in your controller:
 
 Controller:
 ```javascript
@@ -104,8 +106,3 @@ isSupported()			 | return true if fullscreen API is supported by your browser
 ## Example
 You can check out this live example here: 
 http://www.fabiobiondi.com/demo/github/angular-fullscreen/demo/
-
-## License
-The MIT License
-
-Copyright (c) 2014 [Fabio Biondi](http://www.fabiobiondi.com)
