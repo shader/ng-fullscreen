@@ -16,6 +16,10 @@
                   element.webkitRequestFullscreen();
                } else if (element.mozRequestFullScreen) {
                   element.mozRequestFullScreen();
+               } else if(element.webkitRequestFullScreen) {
+                  element.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+               } else if(element.webkitRequestFullscreen) {
+                   element.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
                } else if (element.msRequestFullscreen) {
                   element.msRequestFullscreen();
                }
@@ -27,6 +31,14 @@
                    document.webkitExitFullscreen();
                } else if (document.mozCancelFullScreen) {
                    document.mozCancelFullScreen();
+               } else if(document.cancelFullScreen) {
+                  document.cancelFullScreen();
+               } else if(document.mozCancelFullScreen) {
+                  document.mozCancelFullScreen();
+               } else if(document.webkitCancelFullScreen) {
+                  document.webkitCancelFullScreen();
+               } else if(document.webkitCancelFullscreen) {
+                   document.webkitCancelFullscreen();
                } else if (document.msExitFullscreen) {
                    document.msExitFullscreen();
                }
@@ -40,7 +52,7 @@
             },
             isSupported: function(){
                 var docElm = document.documentElement;
-                return docElm.requestFullScreen || docElm.mozRequestFullScreen || docElm.webkitRequestFullScreen || docElm.msRequestFullscreen;
+                return docElm.requestFullScreen || docElm.mozRequestFullScreen || docElm.webkitRequestFullScreen || docElm.webkitRequestFullscreen || docElm.msRequestFullscreen;
             }
          };
          
